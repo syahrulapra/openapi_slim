@@ -8,7 +8,7 @@ use App\Models\Tickets;
 use App\Http\Controllers\OpenApi;
 use OpenApi\Attributes as OAT;
 
-class Ticket extends OpenApi {
+class TicketController extends OpenApi {
     #[OAT\Get(path: "/api/tickets", operationId: "getTicket")]
     #[OAT\Response(response: 200, description: "Success")]
     public function index(Request $request, Response $response): Response

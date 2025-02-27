@@ -34,6 +34,11 @@ class ComposerStaticInit026509606a55be5c56c243e48adc6597
         array (
             'voku\\' => 5,
         ),
+        'T' => 
+        array (
+            'Tuupola\\Middleware\\' => 19,
+            'Tuupola\\Http\\Factory\\' => 21,
+        ),
         'S' => 
         array (
             'Symfony\\Polyfill\\Php83\\' => 23,
@@ -95,6 +100,7 @@ class ComposerStaticInit026509606a55be5c56c243e48adc6597
         ),
         'F' => 
         array (
+            'Firebase\\JWT\\' => 13,
             'Fig\\Http\\Message\\' => 17,
             'FastRoute\\' => 10,
         ),
@@ -128,6 +134,15 @@ class ComposerStaticInit026509606a55be5c56c243e48adc6597
         'voku\\' => 
         array (
             0 => __DIR__ . '/..' . '/voku/portable-ascii/src/voku',
+        ),
+        'Tuupola\\Middleware\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/tuupola/callable-handler/src',
+            1 => __DIR__ . '/..' . '/tuupola/slim-jwt-auth/src',
+        ),
+        'Tuupola\\Http\\Factory\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/tuupola/http-factory/src',
         ),
         'Symfony\\Polyfill\\Php83\\' => 
         array (
@@ -286,6 +301,10 @@ class ComposerStaticInit026509606a55be5c56c243e48adc6597
         array (
             0 => __DIR__ . '/..' . '/graham-campbell/result-type/src',
         ),
+        'Firebase\\JWT\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/firebase/php-jwt/src',
+        ),
         'Fig\\Http\\Message\\' => 
         array (
             0 => __DIR__ . '/..' . '/fig/http-message-util/src',
@@ -345,8 +364,12 @@ class ComposerStaticInit026509606a55be5c56c243e48adc6597
     );
 
     public static $classMap = array (
-        'App\\Http\\Controllers\\Ticket' => __DIR__ . '/../..' . '/app/Http/Controllers/Ticket.php',
+        'App\\Http\\Controllers\\Auth\\AuthController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/AuthController.php',
+        'App\\Http\\Controllers\\OpenApi' => __DIR__ . '/../..' . '/app/Http/Controllers/OpenApi.php',
+        'App\\Http\\Controllers\\Schemas\\TicketSchema' => __DIR__ . '/../..' . '/app/Http/Controllers/Schemas/TicketSchema.php',
+        'App\\Http\\Controllers\\Tests\\TicketController' => __DIR__ . '/../..' . '/app/Http/Controllers/Tests/TicketController.php',
         'App\\Models\\Tickets' => __DIR__ . '/../..' . '/app/Models/Tickets.php',
+        'App\\Models\\Users' => __DIR__ . '/../..' . '/app/Models/Users.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
         'Brick\\Math\\BigDecimal' => __DIR__ . '/..' . '/brick/math/src/BigDecimal.php',
         'Brick\\Math\\BigInteger' => __DIR__ . '/..' . '/brick/math/src/BigInteger.php',
@@ -799,6 +822,12 @@ class ComposerStaticInit026509606a55be5c56c243e48adc6597
         'FastRoute\\RouteParser\\Std' => __DIR__ . '/..' . '/nikic/fast-route/src/RouteParser/Std.php',
         'Fig\\Http\\Message\\RequestMethodInterface' => __DIR__ . '/..' . '/fig/http-message-util/src/RequestMethodInterface.php',
         'Fig\\Http\\Message\\StatusCodeInterface' => __DIR__ . '/..' . '/fig/http-message-util/src/StatusCodeInterface.php',
+        'Firebase\\JWT\\BeforeValidException' => __DIR__ . '/..' . '/firebase/php-jwt/src/BeforeValidException.php',
+        'Firebase\\JWT\\ExpiredException' => __DIR__ . '/..' . '/firebase/php-jwt/src/ExpiredException.php',
+        'Firebase\\JWT\\JWK' => __DIR__ . '/..' . '/firebase/php-jwt/src/JWK.php',
+        'Firebase\\JWT\\JWT' => __DIR__ . '/..' . '/firebase/php-jwt/src/JWT.php',
+        'Firebase\\JWT\\Key' => __DIR__ . '/..' . '/firebase/php-jwt/src/Key.php',
+        'Firebase\\JWT\\SignatureInvalidException' => __DIR__ . '/..' . '/firebase/php-jwt/src/SignatureInvalidException.php',
         'GrahamCampbell\\ResultType\\Error' => __DIR__ . '/..' . '/graham-campbell/result-type/src/Error.php',
         'GrahamCampbell\\ResultType\\Result' => __DIR__ . '/..' . '/graham-campbell/result-type/src/Result.php',
         'GrahamCampbell\\ResultType\\Success' => __DIR__ . '/..' . '/graham-campbell/result-type/src/Success.php',
@@ -2352,6 +2381,18 @@ class ComposerStaticInit026509606a55be5c56c243e48adc6597
         'Symfony\\Polyfill\\Php80\\Php80' => __DIR__ . '/..' . '/symfony/polyfill-php80/Php80.php',
         'Symfony\\Polyfill\\Php80\\PhpToken' => __DIR__ . '/..' . '/symfony/polyfill-php80/PhpToken.php',
         'Symfony\\Polyfill\\Php83\\Php83' => __DIR__ . '/..' . '/symfony/polyfill-php83/Php83.php',
+        'Tuupola\\Http\\Factory\\RequestFactory' => __DIR__ . '/..' . '/tuupola/http-factory/src/RequestFactory.php',
+        'Tuupola\\Http\\Factory\\ResponseFactory' => __DIR__ . '/..' . '/tuupola/http-factory/src/ResponseFactory.php',
+        'Tuupola\\Http\\Factory\\ServerRequestFactory' => __DIR__ . '/..' . '/tuupola/http-factory/src/ServerRequestFactory.php',
+        'Tuupola\\Http\\Factory\\StreamFactory' => __DIR__ . '/..' . '/tuupola/http-factory/src/StreamFactory.php',
+        'Tuupola\\Http\\Factory\\UploadedFileFactory' => __DIR__ . '/..' . '/tuupola/http-factory/src/UploadedFileFactory.php',
+        'Tuupola\\Http\\Factory\\UriFactory' => __DIR__ . '/..' . '/tuupola/http-factory/src/UriFactory.php',
+        'Tuupola\\Middleware\\CallableHandler' => __DIR__ . '/..' . '/tuupola/callable-handler/src/CallableHandler.php',
+        'Tuupola\\Middleware\\DoublePassTrait' => __DIR__ . '/..' . '/tuupola/callable-handler/src/DoublePassTrait.php',
+        'Tuupola\\Middleware\\JwtAuthentication' => __DIR__ . '/..' . '/tuupola/slim-jwt-auth/src/JwtAuthentication.php',
+        'Tuupola\\Middleware\\JwtAuthentication\\RequestMethodRule' => __DIR__ . '/..' . '/tuupola/slim-jwt-auth/src/JwtAuthentication/RequestMethodRule.php',
+        'Tuupola\\Middleware\\JwtAuthentication\\RequestPathRule' => __DIR__ . '/..' . '/tuupola/slim-jwt-auth/src/JwtAuthentication/RequestPathRule.php',
+        'Tuupola\\Middleware\\JwtAuthentication\\RuleInterface' => __DIR__ . '/..' . '/tuupola/slim-jwt-auth/src/JwtAuthentication/RuleInterface.php',
         'UnhandledMatchError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/UnhandledMatchError.php',
         'ValueError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/ValueError.php',
         'voku\\helper\\ASCII' => __DIR__ . '/..' . '/voku/portable-ascii/src/voku/helper/ASCII.php',

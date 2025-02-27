@@ -4,6 +4,8 @@ use Slim\Factory\AppFactory;
 
 require __DIR__ . '/../vendor/autoload.php';
 
+require_once __DIR__ . '/../bootstrap/database.php';
+
 $containerBuilder = new ContainerBuilder();
 
 $settings = require __DIR__ . '/../app/settings.php';

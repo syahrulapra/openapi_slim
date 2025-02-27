@@ -14,7 +14,12 @@ return function (ContainerBuilder $containerBuilder) {
         'charset' => env('DB_CHARSET'),
         'collation' => env('DB_COLLATION'),
         'prefix' => env('DB_PREFIX'),
-      ]
-    ],
+      ],
+      'jwt_authentication' => [
+        'secret' => env('JWT_SECRET'),
+        'algorithm' => 'HS256',
+        'secure' => false
+      ],
+    ]
   ]);
 };
