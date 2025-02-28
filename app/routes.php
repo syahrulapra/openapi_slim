@@ -28,6 +28,11 @@ return function (App $app) {
         return $response;
     });
 
+    $app->get('/', function (Request $request, Response $response) {
+        $response->getBody()->write("Hello world!");
+        return $response;
+    });
+
     $app->get('/docs', function (Request $request, Response $response) {
         $yamlFile = __DIR__ . '/../openapi.yaml';
         $response->getBody()->write(file_get_contents($yamlFile));
@@ -35,10 +40,10 @@ return function (App $app) {
     });
 
     $app->group('/api', function ($app) {
-        $app->get("/tickets", 'App\Http\Controllers\Tests\TicketController:index');
-        $app->post("/tickets", 'App\Http\Controllers\Tests\TicketController:store');
-        $app->put("/tickets/{id}", 'App\Http\Controllers\Tests\TicketController:update');
-        $app->delete("/tickets/{id}", 'App\Http\Controllers\Tests\TicketController:delete');
+        $app->get("/tickets", 'App\Http\Controllers\TicketController:index');
+        $app->post("/tickets", 'App\Http\Controllers\TicketController:store');
+        $app->put("/tickets/{id}", 'App\Http\Controllers\TicketController:update');
+        $app->delete("/tickets/{id}", 'App\Http\Controllers\TicketController:delete');
     })->addMiddleware($container->get(JwtAuthentication::class));
 
     $app->post('/login', 'App\Http\Controllers\Auth\AuthController:login');

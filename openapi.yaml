@@ -2,27 +2,68 @@ openapi: 3.0.0
 info:
   title: 'Ticketing API Documentation'
   description: 'Ticketing API Documentation'
-  termsOfService: 'https://ticketing.api.syahrulap.my.id'
   version: 1.0.0
 servers:
   -
     url: 'https://ticketing.api.syahrulap.my.id'
 paths:
+  /login:
+    post:
+      tags:
+        - Auth
+      summary: 'User login'
+      operationId: login
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Auth'
+      responses:
+        '201':
+          description: 'Login successful'
+        '401':
+          description: 'Invalid credentials'
   /api/tickets:
     get:
-      operationId: getTicket
+      tags:
+        - Tickets
+      summary: 'Get all tickets'
+      operationId: getTickets
       responses:
         '200':
           description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Ticket'
+      security:
+        -
+          bearerAuth: []
     post:
-      operationId: storeTicket
+      tags:
+        - Tickets
+      summary: 'Create a new ticket'
+      operationId: createTicket
       requestBody:
-        $ref: '#/components/schemas/TicketSchema'
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Ticket'
       responses:
         '201':
-          description: Success
+          description: 'Ticket created successfully'
+      security:
+        -
+          bearerAuth: []
   '/api/tickets/{id}':
     put:
+      tags:
+        - Tickets
+      summary: 'Update an existing ticket'
       operationId: updateTicket
       parameters:
         -
@@ -32,11 +73,23 @@ paths:
           schema:
             type: integer
       requestBody:
-        $ref: '#/components/schemas/TicketSchema'
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Ticket'
       responses:
         '200':
-          description: Success
+          description: 'Ticket updated successfully'
+        '404':
+          description: 'Ticket not found'
+      security:
+        -
+          bearerAuth: []
     delete:
+      tags:
+        - Tickets
+      summary: 'Delete a ticket'
       operationId: deleteTicket
       parameters:
         -
@@ -47,14 +100,25 @@ paths:
             type: integer
       responses:
         '200':
-          description: Success
+          description: 'Ticket deleted successfully'
+        '404':
+          description: 'Ticket not found'
+      security:
+        -
+          bearerAuth: []
 components:
   schemas:
-    TicketSchema:
+    Auth:
       properties:
-        id:
-          type: integer
-          example: 1
+        email:
+          type: string
+          example: admin@example.com
+        password:
+          type: string
+          example: password
+      type: object
+    Ticket:
+      properties:
         title:
           type: string
           example: 'Issue with server'
@@ -76,3 +140,15 @@ components:
             - high
           example: medium
       type: object
+  securitySchemes:
+    bearerAuth:
+      type: http
+      bearerFormat: JWT
+      scheme: bearer
+tags:
+  -
+    name: Auth
+    description: 'User authentication'
+  -
+    name: Tickets
+    description: 'Operations about tickets'
